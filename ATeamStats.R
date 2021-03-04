@@ -1,3 +1,9 @@
+################################################################################
+
+#############################A-TEAM STATS#######################################
+##Authors: Max Jones and Julian Wilson
+##Date: 3/4/2021
+################################################################################
 library(shiny)
 library(tidyverse)
 library(moderndive)
@@ -224,4 +230,3 @@ server <- function(input, output)
 
 # Run the application 
 shinyApp(ui = ui, server = server)
-
