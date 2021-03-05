@@ -1,3 +1,5 @@
+################################################################################
+
 #############################A-TEAM STATS#######################################
 ##Authors: Max Jones and Julian Wilson
 ##Date: 3/4/2021
@@ -10,6 +12,7 @@ library(janitor)
 library(ggthemr)
 library(scales)
 library(googlesheets4)
+
 
 options(httr_oob_default=TRUE) 
 gs4_auth() 
@@ -86,58 +89,7 @@ server <- function(input, output)
     
     
     
-    
-    #        if(input$check == TRUE)
-    #        {
-    #          
-    #        if(input$big == "Match_Number") 
-    #          {
-    #          big %>%  filter(Round_Number != 2) %>% 
-    #          ggplot(aes(x = Category, fill = Team_Answered)) + 
-    #          geom_bar() + 
-    #          labs(y = "Number of questions", x = "Category", title = "Frequency of Categories") +
-    #          theme(axis.text.x = element_text(size = 12, hjust = 0.5), axis.text.y = element_text(size = 12, hjust = 1), axis.title = element_text(size = 16, hjust = 0.5), title = element_text(size = 18, hjust = 0.5)) +           coord_flip() + 
-    #          scale_fill_discrete(name = "Team Answered")
-    
-    #       }
-    
-    #      else {
-    #        big %>% filter(Match_Number == input$big) %>%  filter(Round_Number != 2) %>% 
-    #           ggplot(aes(x = Category, fill = Team_Answered)) + 
-    #           geom_bar() + 
-    #           labs(y = "Number of questions", x = "Category", title = "Frequency of Categories") +
-    #           theme(axis.text.x = element_text(size = 12, hjust = 0.5), axis.text.y = element_text(size = 12, hjust = 1), axis.title = element_text(size = 16, hjust = 0.5), title = element_text(size = 18, hjust = 0.5)) + 
-    #           coord_flip() + 
-    #           scale_fill_discrete(name = "Team Answered")
-    #       }
-    #        }
-    #        else
-    #        {
-    #          if(input$big == "Match_Number") {
-    #            ggplot(data = big, aes(x = big$Category, fill = big$Team_Answered)) + 
-    #              geom_bar() + 
-    #             labs(y = "Number of questions", x = "Category", title = "Frequency of Categories") +
-    #              theme(axis.text.x = element_text(size = 12, hjust = 0.5), axis.text.y = element_text(size = 12, hjust = 1), axis.title = element_text(size = 16, hjust = 0.5), title = element_text(size = 18, hjust = 0.5)) + 
-    #              coord_flip () + 
-    #              scale_fill_discrete(name = "Team Answered")
-    #            
-    #          }
-    #          else {
-    #            big %>% filter(Match_Number == input$big) %>% 
-    #              ggplot(aes(x = Category, fill = Team_Answered)) + 
-    #              geom_bar() + 
-    #              labs(y = "Number of questions", x = "Category", title = "Frequency of Categories") +
-    #              theme(axis.text.x = element_text(size = 12, hjust = 0.5), axis.text.y = element_text(size = 12, hjust = 1), axis.title = element_text(size = 16, hjust = 0.5), title = element_text(size = 18, hjust = 0.5)) + 
-    #              coord_flip() + 
-    #              scale_fill_discrete(name = "Team Answered")
-    
-    #            }
-    
-    
-    #        }
-    #        }
-    #    )
-    
+
     output$frequency <- renderPlot(
         {
             if(input$category != "Category")
@@ -209,22 +161,10 @@ server <- function(input, output)
         }
     )
     
-    #sum(big$Team_Answered == "Us")  * 10 - (sum(big$Neg == "Us") * 5)) / (sum(big$Team_Answered)
-    #sum(big$Team_Answered == "Them")  * 10 - (sum(big$Neg == "Them") * 5)) / (sum(big$Team_Answered)
 }    
-
-#    output$team <- renderPlot(
-#       {
-#          ggplot(data = big, aes(x = big$Team_Answered)) + geom_bar()
-
-#       }
-#   )
-#  output$negs <-   renderPlot( 
-#      {
-#       #big %>% filter(Neg != "None") %>%  ggplot(aes(x = big$Neg)) + geom_bar()
-#       ggplot(data = big %>% filter(Neg != "None"), aes(x = big$Neg)) + geom_bar()
-
 
 
 # Run the application 
 shinyApp(ui = ui, server = server)
+
+
