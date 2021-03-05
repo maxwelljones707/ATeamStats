@@ -12,6 +12,7 @@ library(janitor)
 library(ggthemr)
 library(scales)
 library(googlesheets4)
+library(shinyWidgets)
 
 
 options(httr_oob_default=TRUE) 
@@ -22,7 +23,17 @@ big <- read_sheet("https://docs.google.com/spreadsheets/d/1nij5_MGT6T6xiyKLQPZVp
 
 
 ggthemr("pale")
+
+
+
+
 ui <- fluidPage(
+    
+    setBackgroundColor(
+        color = c("#00FFFF"),
+        gradient = "linear",
+        direction = "bottom"
+    ),
     
     titlePanel("Match Data"), 
     sidebarLayout(
